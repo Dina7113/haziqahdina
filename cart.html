@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html>
 <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -206,7 +207,7 @@
             color: #fff;
         }
 
-	 footer {
+        footer {
             background: #111;
             color: #fff;
             text-align: center;
@@ -260,7 +261,6 @@
 
         <div class="payment-section" id="paymentSection">
             <h3>Payment in Process</h3>
-            <img src="https://via.placeholder.com/200" alt="QR Code">
             <input type="text" placeholder="Enter receipt number" id="receiptInput">
             <input type="file" accept="image/*" id="receiptUpload">
         </div>
@@ -315,6 +315,14 @@
             } else {
                 const paymentSection = document.getElementById('paymentSection');
                 paymentSection.style.display = 'block';
+
+                // Dynamically add the QR code image
+                const qrImage = document.createElement('img');
+                qrImage.src = 'qr.jpg';
+                qrImage.alt = 'qr';
+                qrImage.style.marginTop = '20px'; // Optional: Add some spacing
+                paymentSection.appendChild(qrImage);
+
                 alert('Payment in process. Please scan the QR code and upload the receipt.');
             }
         });
